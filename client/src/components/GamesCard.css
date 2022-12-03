@@ -1,0 +1,41 @@
+
+.gamesFeature {
+  position: absolute;
+  top: 95px;
+  left: 1135px;
+}
+
+.gamesCard {
+  display: inline-flex;
+  flex-wrap: wrap;
+  position: relative;
+  place-items: left;
+  gap: 0rem;
+  background-image: linear-gradient(135deg, rgb(20, 27, 77),rgb(10, 5, 41));
+  background-color: #080039;
+  border-radius: 20px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #a5a5a7;
+  width: 360px;
+  height: 550px;
+  padding: 0rem;
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, .02),
+      0 6.7px 5.3px rgba(0, 0, 0, 0.028), 0 12.5px 10px rgba(0, 0, 0, .5),
+      0 22.3px 17.9px rgba(0, 0, 0, 0.042), 0 41.8px 33.4px rgba(0, 0, 0, 0.05),
+      0 100px 80px rgba(0, 0, 0, 0.07);
+}
+
+.subDiv {
+  width: calc(100% / 1);
+  border: 1px solid white;
+}
+
+.topDesc {
+  position: absolute;
+  font-family: 'Tungsten';
+  top: 10px;
+  left: 20px;
+  color: rgb(255, 255, 255);
+  font-size: 37px;
+}

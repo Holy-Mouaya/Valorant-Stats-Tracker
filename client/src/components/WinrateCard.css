@@ -1,0 +1,70 @@
+.winGraphContain {
+  position: relative;
+  top: -144px;
+  left: -136px;
+  width: 355px ;
+  height: 260px;
+}
+
+.winrate-line {
+  position: absolute;
+  width: 89.5%;
+  margin: 0 auto;
+  border: .5px solid white;
+  top: 55px;
+  left: 20px;
+}
+
+.winrate-percent{
+  position: absolute;
+  left: 125px;
+  top: 75px;
+  font-family: 'Tungsten';
+  color: rgb(255, 255, 255);
+  font-size: 110px;
+}
+
+.winrate-percent2{
+  position: absolute;
+  left: 116px;
+  top: 83px;
+  font-family: 'Tungsten';
+  color: rgb(255, 255, 255);
+  font-size: 100px;
+}
+
+.winrate-percent3{
+  position: absolute;
+  left: 132px;
+  top: 61px;
+  font-family: 'Tungsten';
+  color: rgb(255, 255, 255);
+  font-size: 120px;
+}
+
+
+.winrateFeature {
+  position: absolute;
+  top: 180px;
+  left: 722px;
+}
+
+.winrateCard {
+  position: relative;
+  display: grid;
+  place-items: left;
+  gap: 1rem;
+  background-image: linear-gradient(135deg, rgb(20, 27, 77),rgb(10, 5, 41));
+  background-color: #080039;
+  border-radius: 20px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #a5a5a7;
+  width: 80px;
+  height: 90px;
+  padding: 9rem;
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, .02),
+      0 6.7px 5.3px rgba(0, 0, 0, 0.028), 0 12.5px 10px rgba(0, 0, 0, .5),
+      0 22.3px 17.9px rgba(0, 0, 0, 0.042), 0 41.8px 33.4px rgba(0, 0, 0, 0.05),
+      0 100px 80px rgba(0, 0, 0, 0.07);
+}

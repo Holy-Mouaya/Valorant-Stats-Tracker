@@ -1,0 +1,140 @@
+.introFeature {
+  position: absolute;
+  top: 40px;
+  left: 105px;
+}
+
+@font-face {
+  font-family: 'Tungsten';
+  src: url('../../public/TungstenFont/Tungsten-Bold/Tungsten-Bold.ttf');
+}
+@font-face {
+  font-family: 'Valorant';
+  src: url('../../public/TungstenFont/Tungsten-Bold/Valorant-Font.ttf');
+}
+
+.intro-line{
+  position: absolute;
+  width: 59%;
+  margin: 0 auto;
+  border: .5px solid white;
+  top: 208px;
+  left: 20px;
+}
+
+.intro-stats1{
+  position: absolute;
+  font-family: sans-serif;
+  font-size: 15px;
+  color: rgb(196, 195, 195);
+  top: 210px;
+  left: 35px;
+}
+
+.intro-data1{
+  position: absolute;
+  left: 50px;
+  top: 230px;
+  font-size: 18px;
+  color: white;
+  font-family: sans-serif;
+}
+
+.intro-data2{
+  position: absolute;
+  left: 172px;
+  top: 230px;
+  font-size: 18px;
+  color: white;
+  font-family: sans-serif;
+}
+
+.intro-data3{
+  position: absolute;
+  left: 288px;
+  top: 230px;
+  font-size: 18px;
+  color: white;
+  font-family: sans-serif;
+}
+
+.intro-stats2{
+  position: absolute;
+  font-family: sans-serif;
+  font-size: 15px;
+  color: rgb(196, 195, 195);
+  top: 210px;
+  left: 142px;
+}
+
+.intro-stats3{
+  position: absolute;
+  font-family: sans-serif;
+  font-size: 15px;
+  color: rgb(196, 195, 195);
+  top: 210px;
+  left: 275px;
+}
+
+.intro-title{
+  position: absolute;
+  left: 30px;
+  top: 80px;
+  font-family: 'Tungsten';
+  color: rgb(176, 0, 0);
+  font-size: 70px;
+}
+
+.top-agent{
+position: absolute;
+font-family: 'Valorant';
+left: 40px;
+top: 106px;
+font-size: 15px;
+color: white;
+}
+
+.top-rank{
+  position: absolute;
+  font-family: 'Valorant';
+  left: 40px;
+  top: 46px;
+  font-size: 15px;
+  color: white;
+}
+
+.agentImg{
+  position: absolute;
+  max-height: 330px;
+  left: 350px;
+  top: -40px;
+}
+
+.rank-image {
+  position: absolute;
+  top: 29px;
+  left: 175px;
+  max-height: 80px;
+  filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, .7));
+}
+
+
+.introCard {
+  position: relative;
+  display: grid;
+  place-items: left;
+  gap: 1rem;
+  background-image: linear-gradient(135deg, rgb(20, 27, 77),rgb(10, 5, 41));
+  background-color: #080039;
+  border-radius: 20px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #a5a5a7;
+  width: 285px;
+  height: 7px;
+  padding: 9rem;
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, .02),
+      0 6.7px 5.3px rgba(0, 0, 0, 0.028), 0 12.5px 10px rgba(0, 0, 0, .5),
+      0 22.3px 17.9px rgba(0, 0, 0, 0.042), 0 41.8px 33.4px rgba(0, 0, 0, 0.05),
+      0 100px 80px rgba(0, 0, 0, 0.07);
+}
