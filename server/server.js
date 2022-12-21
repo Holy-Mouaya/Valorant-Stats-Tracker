@@ -1,7 +1,8 @@
-const express = require('express')
-const app = express()
-const port = process.env.PORT || 5000
-const fetch = require('node-fetch')
+const express = require('express');
+const app = express();
+const port = process.env.PORT || 5000 ;
+const path = require('path');
+const fetch = require('node-fetch');
 
 if(process.env.NODE_ENV === 'production') {
   app.use(express.static('build'));
