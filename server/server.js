@@ -1,20 +1,38 @@
 const express = require('express')
 const app = express()
-const port = 5000
+const port = process.env.PORT || 5000
 const fetch = require('node-fetch')
 
+if(process.env.NODE_ENV === 'production') {
+  app.use(express.static('build'));
+  app.get('*', (req,res) => {
+    res.sendFile(path.resolve(__dirname, 'build', 'index.html'));
+  })
+}
+
 //Returns the user's account name and tag
-app.get('/statistics/:username/:tag', async(req, res) => {
-  var username = req.params.username
-  var tag = req.params.tag
-  var playerUrl = `https://api.henrikdev.xyz/valorant/v1/account/${username}/${tag}`
-  const fetchApi = await fetch(playerUrl)
-  const valoResponse = await fetchApi.json()
-  res.json(valoResponse)
+app.get('/valorant/:username/:tag', async(req, res) => {
+  var username = req.params.username;
+  var tag = req.params.tag;
+  var playerUrl = `https://api.henrikdev.xyz/valorant/v1/account/${username}/${tag}`;
+  const fetchApi = await fetch(playerUrl);
+  const valoResponse = await fetchApi.json();
+  res.json(valoResponse);
+})
+
+//Returns the user's account name and tag
+app.get('/valorant/:username/:tag/playercard', async(req, res) => {
+  var username = req.params.username;
+  var tag = req.params.tag;
+  var playerUrl = `https://api.henrikdev.xyz/valorant/v1/account/${username}/${tag}`;
+  const fetchApi = await fetch(playerUrl);
+  const valoResponse = await fetchApi.json();
+  let cardUrl = valoResponse.data.card.small;
+  res.json(cardUrl)
 })
 
 //Returns the user's rank
-app.get('/mmr/:region/:username/:tag/rank', async(req, res) => {
+app.get('/valorant/:region/:username/:tag/rank', async(req, res) => {
   var username = req.params.username;
   var tag = req.params.tag;
   var region = req.params.region;
@@ -25,7 +43,7 @@ app.get('/mmr/:region/:username/:tag/rank', async(req, res) => {
 })
 
 //Returns the user's match making rating for the last 15 games
-app.get('/mmr/:region/:username/:tag/eloChange', async(req, res) => {
+app.get('/valorant/:region/:username/:tag/eloChange', async(req, res) => {
   var username = req.params.username
   var tag = req.params.tag
   var region = req.params.region
@@ -55,7 +73,7 @@ app.get('/mmr/:region/:username/:tag/eloChange', async(req, res) => {
 })
 
 //Returns an array indicating the user's wins and losses for his last 15 games
-app.get('/mmr/:region/:username/:tag/winrate', async(req, res) => {
+app.get('/valorant/:region/:username/:tag/winrate', async(req, res) => {
   var username = req.params.username
   var tag = req.params.tag
   var region = req.params.region
@@ -99,7 +117,7 @@ app.get('/mmr/:region/:username/:tag/winrate', async(req, res) => {
 
 
 //returns the player's KDA
-app.get('/mmr/:region/:username/:tag/KDA', async(req, res) => {
+app.get('/valorant/:region/:username/:tag/KDA', async(req, res) => {
   var username = req.params.username
   var tag = req.params.tag
   var region = req.params.region
@@ -137,7 +155,7 @@ app.get('/mmr/:region/:username/:tag/KDA', async(req, res) => {
 
 
 //Returns the player's most used agent for all his matches
-app.get('/mmr/:region/:username/:tag/agent', async(req, res) => {
+app.get('/valorant/:region/:username/:tag/agent', async(req, res) => {
   var username = req.params.username
   var tag = req.params.tag
   var region = req.params.region
@@ -179,7 +197,7 @@ app.get('/mmr/:region/:username/:tag/agent', async(req, res) => {
 })
 
 //Returns stats for the user's last 5 matches in an array
-app.get('/mmr/:region/:username/:tag/matchstats', async(req, res) => {
+app.get('/valorant/:region/:username/:tag/matchstats', async(req, res) => {
   var username = req.params.username
   var tag = req.params.tag
   var region = req.params.region
@@ -224,8 +242,11 @@ app.get('/mmr/:region/:username/:tag/matchstats', async(req, res) => {
 
     statsArr[i]= [agent, [userRoundsWon, enemyRoundsWon], kdaArr, userKD]
   }
-  res.json(statsArr)
+  res.json(statsArr);
 })
 
 
-app.listen(port, () => {console.log("Server started on port 5000")})
+app.listen(port, (err) => { 
+  if (err) return console.log(err);
+  console.log("Server started on port " + port)
+})
