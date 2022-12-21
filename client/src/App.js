@@ -1,7 +1,5 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import './App.css';
-import IntroCard from './components/IntroCard';
-import GetForm from './components/GetForm';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import Home from './components/pages/Home';
 import StatsDisplay from './components/pages/StatsDisplay';
