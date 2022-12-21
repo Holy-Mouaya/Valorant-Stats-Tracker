@@ -1,15 +1,21 @@
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 5000 ;
-const path = require('path');
+//const path = require('path');
 const fetch = require('node-fetch');
 
+/*
 if(process.env.NODE_ENV === 'production') {
   app.use(express.static('build'));
   app.get('*', (req,res) => {
     res.sendFile(path.resolve(__dirname, 'build', 'index.html'));
   })
 }
+*/
+
+app.get('/', (req, res) => {
+  res.send("Hello world");
+})
 
 //Returns the user's account name and tag
 app.get('/valorant/:username/:tag', async(req, res) => {
