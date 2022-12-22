@@ -5,9 +5,10 @@ import { useNavigate } from 'react-router-dom';
 import {set, useForm} from 'react-hook-form';
 import { useContext } from 'react';
 import { usernameContext } from '../App';
-import Spinner from './Spinner';
 
 function GetForm() {
+
+  const baseURL = process.env.NODE_ENV === "development" ? "http://localhost:5000" : "https://valorant-statistics-tracker.herokuapp.com";
 
   //const [ spinner, setSpinner ] = useState(false);
 
@@ -18,31 +19,31 @@ function GetForm() {
 
   const onSubmit = async (data) => {
     //setSpinner(true);
-    const response = await fetch (`/valorant/${data.usernameInput}/${data.tagInput}`);
+    const response = await fetch (baseURL + `/valorant/${data.usernameInput}/${data.tagInput}`);
     const userData = await response.json();
     //setValue(userData);
     //setValue([userData, userAgent]);
     if (userData.status == 200){
 
-      const agentResponse = await fetch (`/valorant/${userData.data.region}/${userData.data.name}/${userData.data.tag}/agent`);
+      const agentResponse = await fetch (baseURL + `/valorant/${userData.data.region}/${userData.data.name}/${userData.data.tag}/agent`);
       const userAgent = await agentResponse.json();
-      const rankResponse = await fetch (`/valorant/${userData.data.region}/${userData.data.name}/${userData.data.tag}/rank`);
+      const rankResponse = await fetch (baseURL + `/valorant/${userData.data.region}/${userData.data.name}/${userData.data.tag}/rank`);
       const userRank = (await rankResponse.json()).replace(/\s/g, '');
-      const KDAResponse = await fetch (`/valorant/${userData.data.region}/${userData.data.name}/${userData.data.tag}/KDA`);
+      const KDAResponse = await fetch (baseURL + `/valorant/${userData.data.region}/${userData.data.name}/${userData.data.tag}/KDA`);
       const userKDA = await KDAResponse.json();
       const userRegion = userData.data.region;
       const userLevel = userData.data.account_level;
 
-      const MMRResponse = await fetch (`/valorant/${userData.data.region}/${userData.data.name}/${userData.data.tag}/eloChange`);
+      const MMRResponse = await fetch (baseURL + `/valorant/${userData.data.region}/${userData.data.name}/${userData.data.tag}/eloChange`);
       const userMMR = await MMRResponse.json();
 
-      const winrateResponse = await fetch (`/valorant/${userData.data.region}/${userData.data.name}/${userData.data.tag}/winrate`);
+      const winrateResponse = await fetch (baseURL + `/valorant/${userData.data.region}/${userData.data.name}/${userData.data.tag}/winrate`);
       const userWinrate = await winrateResponse.json();
 
-      const statsResponse = await fetch (`/valorant/${userData.data.region}/${userData.data.name}/${userData.data.tag}/matchstats`);
+      const statsResponse = await fetch (baseURL + `/valorant/${userData.data.region}/${userData.data.name}/${userData.data.tag}/matchstats`);
       const userStats = await statsResponse.json();
 
-      const cardResponse = await fetch (`/valorant/${userData.data.name}/${userData.data.tag}/playercard`);
+      const cardResponse = await fetch (baseURL + `/valorant/${userData.data.name}/${userData.data.tag}/playercard`);
       const userCard = await cardResponse.json();
 
       setValue([userAgent, userRegion, userLevel, userRank, userKDA]);

@@ -1,8 +1,11 @@
 const express = require('express');
-const app = express();
-const port = process.env.PORT || 5000 ;
-//const path = require('path');
+const cors = require('cors')
 const fetch = require('node-fetch');
+const port = process.env.PORT || 5000 ;
+const app = express();
+//const path = require('path');
+
+app.use(cors());
 
 /*
 if(process.env.NODE_ENV === 'production') {
